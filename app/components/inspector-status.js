@@ -17,7 +17,7 @@ const parseTime = (zTime) => {
   let [date, time] = zTime.split('T');
   let [year, month, day] = date.split('-');
   let [hour, minute, second] = time.split(':');
-  let result = [year, month, day, hour, minute, second];
+  let result = [year, month - 1, day, hour, minute, second];
 
   return new Date(Date.UTC(...result));
 };
