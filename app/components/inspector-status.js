@@ -29,6 +29,7 @@ export default class InspectorStatus extends Component {
     let response = await fetch(FIREFOX_URL);
     let data = await response.json();
 
+    console.log(data);
     return data;
   });
 

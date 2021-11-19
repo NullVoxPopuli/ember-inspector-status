@@ -2,13 +2,17 @@
   Ember Inspector Release Status
 </h1>
 
+<p>
+  Chrome and Firefox extensions' releases are delayed after the GitHub release (due to review process). This page shows the up-to-date-ness of those extensions as well as reverting instructions in case of Chrome and Firefox releases are delayed too much.
+</p>
+
 <ReleaseInfo as |api|>
   {{#if api.isLoading}}
     <p>Loading...</p>
   {{else}}
     <div>
 
-      Version:
+      GitHub Version:
       <a href={{api.info.html_url}}>{{api.info.tag_name}}</a>
 
       <div>
@@ -25,7 +29,7 @@
         <dd>
           {{this.firefoxVersion}}
           {{#if (api.isUpToDate this.firefoxVersion)}}
-            <em>up to date</em>
+            <em>up to date</em> as of {{this.date this.firefox.value.last_updated}}
           {{else}}
             <em>out of date - publish pending</em>
           {{/if}}
