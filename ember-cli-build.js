@@ -21,4 +21,9 @@ module.exports = function (defaults) {
   // along with the exports of each module as its value.
 
   return app.toTree();
+  // Can't use embroider due to https://github.com/embroider-build/embroider/issues/1020
+  // const { Webpack } = require('@embroider/webpack');
+  // return require('@embroider/compat').compatBuild(app, Webpack, {
+  //   extraPublicTrees: [],
+  // });
 };

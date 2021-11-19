@@ -1,0 +1,48 @@
+<h1>
+  Ember Inspector Release Status
+</h1>
+
+<ReleaseInfo as |api|>
+  {{#if api.isLoading}}
+    <p>Loading...</p>
+  {{else}}
+    <div>
+
+      Version:
+      <a href={{api.info.html_url}}>{{api.info.tag_name}}</a>
+
+      <div>
+        Published at: {{this.date api.info.created_at}}
+      </div>
+    </div>
+
+    <section>
+      <h2>
+        Extension Releases
+      </h2>
+      <dl>
+        <dt>Firefox</dt>
+        <dd>
+          {{this.firefoxVersion}}
+          {{#if (api.isUpToDate this.firefoxVersion)}}
+            <em>up to date</em>
+          {{else}}
+            <em>out of date - publish pending</em>
+          {{/if}}
+        </dd>
+        <dt>Chrome</dt>
+        <dd>
+          n/a
+        </dd>
+      </dl>
+    </section>
+    <section>
+      <h2>
+        How to revert to a previous version
+      </h2>
+      <pre>{{this.revertInstructions}}</pre>
+      Then <a href="https://github.com/emberjs/ember-inspector#installation" target="_blank">
+      follow these instructions</a> to use the local copy of ember inspector.
+    </section>
+  {{/if}}
+</ReleaseInfo>
